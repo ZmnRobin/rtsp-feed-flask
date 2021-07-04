@@ -1,0 +1,282 @@
+/* Annotaion Component CSS  */
+.annotation-component {
+  height: 300px;
+  width: 450px;
+}
+.annotation-component img {
+  max-height: 100%;
+  max-width: 100%;
+}
+.annotation-tool-btn {
+  border: 1px solid black;
+}
+
+/* Archives Component CSS  */
+.archives-component {
+  margin-bottom: 10px;
+  border: 1px solid #80808080;
+}
+
+.archives-component-header-section {
+  padding: 10px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #80808080;
+}
+
+.archives-component-header-section h6 {
+  font-size: 16px;
+}
+
+.archives-component-header-section p {
+  font-size: 12px;
+  font-weight: 500;
+  position: relative;
+  top: 5px;
+}
+
+.archives-component-body-section {
+  padding: 10px;
+  height: calc(30vh - 60px);
+  overflow: auto;
+}
+.archives-component-body-alert-item {
+  padding: 10px 0px;
+}
+
+/* Header Component CSS  */
+.site-header {
+  padding: 1%;
+  border-bottom: 1px solid #80808080;
+}
+.site-logo {
+  padding-left: 5%;
+}
+.header-links-section {
+  display: flex;
+  justify-content: flex-end;
+}
+.header-search-section {
+  display: flex;
+  justify-content: flex-end;
+}
+.header-search-section ul {
+  border: 1px solid grey;
+  padding: 0px 10px;
+}
+.header-search-section input {
+  max-width: 180px;
+  border: none;
+  outline: none;
+}
+
+/* HomeFirstSection Component CSS  */
+.home-first-section-component {
+  padding: 10px;
+  margin-bottom: 10px;
+  height: calc(40vh + 60px);
+  border: 1px solid #80808080;
+}
+.webcam-video-component {
+  width: 100%;
+  height: 100%;
+}
+
+/* HomeSecondSection Component CSS  */
+.home-second-section-component {
+  padding: 10px;
+  height: 30vh;
+  border: 1px solid #80808080;
+  overflow: auto;
+}
+
+/* LatestAlerts Component CSS  */
+.latest-alerts-component {
+  margin-bottom: 10px;
+  border: 1px solid #80808080;
+}
+
+.latest-alerts-component-header-section {
+  padding: 10px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #80808080;
+}
+
+.latest-alerts-component-header-section h6 {
+  font-size: 16px;
+}
+
+.latest-alerts-component-header-section p {
+  font-size: 12px;
+  font-weight: 500;
+  position: relative;
+  top: 5px;
+}
+
+.latest-alerts-component-body-section {
+  padding: 10px;
+  height: 40vh;
+  overflow: auto;
+}
+.latest-alerts-component-body-alert-item {
+  padding: 10px 0px;
+}
+
+/* LatestTransaction Component CSS  */
+.latest-customers-component {
+  border: 1px solid #80808080;
+}
+
+.latest-customers-component-header-section {
+  padding: 10px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #80808080;
+}
+
+.latest-customers-component-header-section h6 {
+  font-size: 16px;
+}
+
+.latest-customers-component-header-section p {
+  font-size: 12px;
+  font-weight: 500;
+  position: relative;
+  top: 5px;
+}
+
+.latest-customers-component-body-section {
+  padding: 10px;
+  height: 70vh;
+  overflow: auto;
+}
+.latest-customers-component-body-customer-item {
+  padding: 10px 0px;
+}
+
+/* NavigationMenu Component CSS  */
+.navigation-menu-component {
+  padding: 10px;
+  border-bottom: 1px solid #80808080;
+}
+.navigation-menu-left-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.navigation-menu-left-section p {
+  /* padding: 0px 5%; */
+  padding: 0px 30px;
+}
+.navigation-menu-right-section {
+  display: flex;
+  justify-content: center;
+}
+
+/* ProductsTrainingStepOne Component CSS  */
+.new-product-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.new-product-body {
+  margin: 2%;
+  padding: 1%;
+  border: 1px solid black;
+  width: 80%;
+}
+.new-product-form {
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+form div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-control,
+.form-select {
+  width: 50%;
+}
+
+.btn-first-step-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.btn-next-step {
+  padding: 5px 20px;
+  border: 1px solid black;
+}
+
+/* ProductsTrainingStepTwo Component CSS  */
+.products-training-second-step-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.products-training-second-step-section {
+  margin: 2%;
+  padding: 1%;
+  border: 1px solid black;
+  width: 80%;
+}
+.take-pictures-btn-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.webcam-section {
+  height: 300px;
+}
+.picture-section {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.previous-next-btn-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.btn-take-pictures,
+.btn-previous-step,
+.btn-next-step {
+  padding: 5px 20px;
+  border: 1px solid black;
+}
+.btn-previous-step {
+  margin-right: 10px;
+}
+
+/* ProductsTrainingStepThree Component CSS  */
+.products-training-third-step-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.products-training-third-step-section {
+  margin: 2%;
+  padding: 1%;
+  border: 1px solid black;
+  width: 80%;
+}
+.webcam-img {
+  margin: 10px;
+  height: 100px;
+  width: 150px;
+}
+.webcam-popup-img {
+  height: 250px;
+  width: 400px;
+}

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap -->
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <title>My Account</title>
+    <style>
+      /* Header Component CSS  */
+      .site-header {
+        padding: 1%;
+        border-bottom: 1px solid #80808080;
+      }
+      .site-logo {
+        padding-left: 5%;
+      }
+      .header-links-section {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .header-search-section {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .header-search-section ul {
+        padding: 0px 5px;
+      }
+      .header-search-section input {
+        max-width: 180px;
+        border: none;
+        outline: none;
+      }
+
+      /* My Account Page Body CSS Styles */
+      .my-account-page-body {
+        padding: 20px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .my-account-page-sidebar-navigation {
+        margin-right: 20px;
+        padding: 10px;
+        width: 20%;
+        min-height: 600px;
+        height: 70vh;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
+      }
+      .my-account-page-navigation-options {
+        padding-left: 20px;
+      }
+      .my-account-page-navigation-options h6 {
+        padding: 10px 0px;
+        cursor: pointer;
+      }
+      .my-account-page-main-body {
+        padding: 10px;
+        width: 70%;
+        min-height: 600px;
+        height: 100%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
+      }
+
+      /* License Section CSS Styles  */
+      .license-query-form-section {
+        margin: 0px 50px 50px 50px;
+        padding: 30px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+      }
+      .license-query-form {
+        max-width: 600px;
+        width: 80%;
+      }
+      .license-query-form input {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .license-query-form button {
+        border: 1px solid black;
+      }
+      .license-query-form-button-section {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .available-licenses-section {
+        margin: 0px 50px;
+        padding: 10px;
+        border: 1px solid gray;
+        border-radius: 5px;
+      }
+
+      .camera-mac-expiry-section {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      /* Body Section Show Hide  */
+      #my-account-page-profile-section {
+        display: block;
+      }
+      #my-account-page-change-password-section,
+      #my-account-page-billing-section,
+      #my-account-page-licensing-section,
+      #my-account-page-role-section,
+      #my-account-page-invite-user-section {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="my-account-page">
+      <!-- Header Component  -->
+      <div class="header-component">
+        <nav class="navbar navbar-expand-md  site-header bg-primary">
+          <div class="container-fluid">
+            <a
+              class="site-logo"
+              href="/home"
+              style="text-decoration: none; color: white"
+              ><h1>EXPERT</h1></a
+            ><button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div
+              class="navbar-collapse collapse justify-content-end"
+              id="navbarNavAltMarkup"
+            >
+              <div class="row">
+                <div class="col-10-xxl">
+                  <div class="header-links-section">
+                    <ul class="navbar-nav">
+                      <li class="nav-item active">
+                        <a
+                          class="nav-link"
+                          href="/products-training#about"
+                          style="text-decoration: none; color: white"
+                          ><h6>About Company</h6></a
+                        >
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a
+                          class="nav-link dropdown-toggle"
+                          id="navbarDropdown"
+                          role="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                          href="/products-training"
+                          style="color: white; font-weight: 500"
+                          >Products</a
+                        >
+                        <ul
+                          class="dropdown-menu"
+                          aria-labelledby="navbarDropdown"
+                        >
+                          <li>
+                            <a class="dropdown-item" href="/products-training"
+                              >Products Training</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="/Dataset-List"
+                              >Dataset-List</a
+                            >
+                          </li>
+                        </ul>
+                       
+                      </li>
+
+                      <li class="nav-item dropdown">
+                        <a
+                          class="nav-link dropdown-toggle"
+                          id="navbarDropdown"
+                          role="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                          style="color: white; font-weight: 500"
+                          >Camera</a
+                        >
+                        <ul
+                          class="dropdown-menu"
+                          aria-labelledby="navbarDropdown"
+                        >
+                          <li>
+                            <a class="dropdown-item" href="/add-camera"
+                              >Add Camera</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="/Camera-list"
+                              >Existing Camera</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <!-- <a
+                      class="nav-link"
+                      href="/add-camera"
+                      style="text-decoration: none; color: black"
+                      ><h6>Camera</h6></a> -->
+                      <li class="nav-item">
+                        <a
+                          class="nav-link"
+                          href="/products-training#help"
+                          style="text-decoration: none; color: white"
+                          ><h6>Help</h6></a
+                        >
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a
+                          class="nav-link"
+                          href="/my-account"
+                          style="text-decoration: none; color: white"
+                          ><h6>My Account</h6></a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-2-xxl">
+                  <div class="header-search-section">
+                    <ul class="navbar-nav">
+                      <li class="nav-item bg-white">
+                        <input
+                          class="form-control"
+                          type="text"
+                          placeholder="search by date and time"
+                        />
+                        <!-- <svg
+                          stroke="currentColor"
+                          fill="currentColor"
+                          stroke-width="0"
+                          viewBox="0 0 1024 1024"
+                          height="1em"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                          ></path>
+                        </svg> -->
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- My Account Page Body  -->
+      <div class="my-account-page-body">
+        <!-- Sidebar Navigation  -->
+        <div class="my-account-page-sidebar-navigation">
+          <h6>My Account</h6>
+          <div class="my-account-page-navigation-options">
+            <h6 onclick="profileOptionHandler()">Profile</h6>
+            <h6 onclick="changePasswordOptionHandler()">Change Password</h6>
+            <h6 onclick="billingOptionHandler()">Billing</h6>
+            <h6 onclick="licensingOptionHandler()">Licensing</h6>
+            <h6 onclick="roleOptionHandler()">Role</h6>
+            <h6 onclick="inviteUserOptionHandler()">Invite User</h6>
+          </div>
+        </div>
+
+
+
+        <!-- Main Body  -->
+        <div class="my-account-page-main-body">
+          <div
+            id="my-account-page-profile-section"
+            class="my-account-page-profile-section"
+          >
+            <h6>Profile</h6>
+            <h4>This is my profile here</h4>
+          </div>
+          <div
+            id="my-account-page-change-password-section"
+            class="my-account-page-change-password-section"
+          >
+            <h6>Change Password</h6>
+          </div>
+          <div
+            id="my-account-page-billing-section"
+            class="my-account-page-billing-section"
+          >
+            <h6>Billing</h6>
+          </div>
+          <div
+            id="my-account-page-licensing-section"
+            class="my-account-page-licensing-section"
+          >
+            <h6>License</h6>
+            <div class="license-query-form-section">
+              <div id="license-query-form" class="license-query-form">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cameraMacInput"
+                  placeholder="Camera MAC"
+                />
+                <input
+                  type="date"
+                  class="form-control"
+                  id="startDateInput"
+                  placeholder="Start Date"
+                />
+                <input
+                  type="date"
+                  class="form-control"
+                  id="expiryDateInput"
+                  placeholder="Expiry Date"
+                />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="clientNameInput"
+                  placeholder="Client Name"
+                />
+                <div class="license-query-form-button-section">
+                  <button class="btn btn-dark" onclick="licenseFormSubmitHandler()">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="available-licenses-section mb-2">
+              <h6>Available License</h6>
+              <div id="delete-license">
+
+              </div>
+            </div>
+          </div>
+          <div
+            id="my-account-page-role-section"
+            class="my-account-page-role-section"
+          >
+            <h6>Role</h6>
+          </div>
+          <div
+            id="my-account-page-invite-user-section"
+            class="my-account-page-invite-user-section"
+          >
+            <h6>Invite User</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Axios  -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- My Account Page JavaScript Codes  -->
+    <script>
+      let cameraMacInput;
+      let startDateInput;
+      let expiryDateInput;
+      let clientNameInput;
+
+      // My Account Page Sections Variables
+      const profileOption = document.getElementById(
+        "my-account-page-profile-section"
+      );
+      const changePasswordOption = document.getElementById(
+        "my-account-page-change-password-section"
+      );
+      const billingOption = document.getElementById(
+        "my-account-page-billing-section"
+      );
+      const licensingOption = document.getElementById(
+        "my-account-page-licensing-section"
+      );
+      const roleOption = document.getElementById(
+        "my-account-page-role-section"
+      );
+      const inviteUserOption = document.getElementById(
+        "my-account-page-invite-user-section"
+      );
+
+      function profileOptionHandler() {
+        //   Sections Show Hide
+        profileOption.style.display = "block";
+        changePasswordOption.style.display = "none";
+        billingOption.style.display = "none";
+        licensingOption.style.display = "none";
+        roleOption.style.display = "none";
+        inviteUserOption.style.display = "none";
+      }
+      function changePasswordOptionHandler() {
+        //   Sections Show Hide
+        profileOption.style.display = "none";
+        changePasswordOption.style.display = "block";
+        billingOption.style.display = "none";
+        licensingOption.style.display = "none";
+        roleOption.style.display = "none";
+        inviteUserOption.style.display = "none";
+      }
+      function billingOptionHandler() {
+        //   Sections Show Hide
+        profileOption.style.display = "none";
+        changePasswordOption.style.display = "none";
+        billingOption.style.display = "block";
+        licensingOption.style.display = "none";
+        roleOption.style.display = "none";
+        inviteUserOption.style.display = "none";
+      }
+      function licensingOptionHandler() {
+        //   Sections Show Hide
+        profileOption.style.display = "none";
+        changePasswordOption.style.display = "none";
+        billingOption.style.display = "none";
+        licensingOption.style.display = "block";
+        roleOption.style.display = "none";
+        inviteUserOption.style.display = "none";
+      }
+      function roleOptionHandler() {
+        //   Sections Show Hide
+        profileOption.style.display = "none";
+        changePasswordOption.style.display = "none";
+        billingOption.style.display = "none";
+        licensingOption.style.display = "none";
+        roleOption.style.display = "block";
+        inviteUserOption.style.display = "none";
+      }
+      function inviteUserOptionHandler() {
+        //   Sections Show Hide
+        profileOption.style.display = "none";
+        changePasswordOption.style.display = "none";
+        billingOption.style.display = "none";
+        licensingOption.style.display = "none";
+        roleOption.style.display = "none";
+        inviteUserOption.style.display = "block";
+      }
+
+
+      window.onload = function() {
+          gettingLicenseData();
+        };
+
+
+      //getting license data from database
+      function gettingLicenseData(){
+        fetch("http://24.186.96.191:8889/show-license")
+        .then(res=>res.json())
+        .then(data=>{
+          const allLincense=data.License;
+          let licenseUi=allLincense.map(license=>`
+            <div class="camera-mac-expiry-section m-1" >
+              <p>${license}</p>
+              <button class="btn btn-danger" onclick="deleteLicense(${license},event)">X</button>
+            </div>
+          `)
+          const deleteLicense=document.getElementById("delete-license");
+          deleteLicense.innerHTML=licenseUi;
+        })
+      }
+
+
+
+    //deleteing single license key from database
+    
+      function deleteLicense(license,event){
+        const eventValue=event.target;
+        const licenseKey=license.toString();
+        fetch('http://24.186.96.191:8889/remove-license', {
+          method: 'POST',
+          body: JSON.stringify({
+            camera_mac:licenseKey
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
+        .then(res => res.json())
+        .then(data => {
+          if (data) {
+            eventValue.parentNode.style.display="none";
+          }
+        })
+      }
+
+
+      function licenseFormSubmitHandler(e) {
+        cameraMacInput = document.getElementById("cameraMacInput").value;
+        startDateInput = document.getElementById("startDateInput").value;
+        expiryDateInput = document.getElementById("expiryDateInput").value;
+        clientNameInput = document.getElementById("clientNameInput").value;
+
+        fetch("http://24.186.96.191:8889/license-add", {
+          method: "POST",
+          body: JSON.stringify({
+            camera_mac: cameraMacInput,
+            start_date: startDateInput,
+            expiry_date: expiryDateInput,
+            client_name: clientNameInput,
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) =>{
+            if (data) {
+              alert("License added successfully.!")
+              gettingLicenseData();
+            }
+          });
+      }
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Bootstrap -->
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+
+    <title>New Station</title>
+    <style>
+      /* Header Component CSS  */
+      .site-header {
+        padding: 1%;
+        border-bottom: 1px solid #80808080;
+      }
+      .site-logo {
+        padding-left: 5%;
+      }
+      .header-links-section {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .header-search-section {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .header-search-section ul {
+        /* border: 1px solid grey; */
+        padding: 0px 5px;
+      }
+      .header-search-section input {
+        max-width: 180px;
+        border: none;
+        outline: none;
+      }
+
+      /* NavigationMenu Component CSS  */
+      .navigation-menu-component {
+        padding: 10px;
+        border-bottom: 1px solid #80808080;
+      }
+      .navigation-menu-left-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+      .navigation-menu-left-section p {
+        /* padding: 0px 5%; */
+        padding: 0px 30px;
+      }
+      .navigation-menu-right-section {
+        display: flex;
+        justify-content: center;
+      }
+
+      /* ProductsTrainingPage CSS  */
+      .station-setup-component-body {
+        margin: 5% auto;
+        max-width: 1000px;
+        padding: 2%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
+      }
+
+      .step-indicator-container {
+        margin: 10px;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .step-container {
+        height: 30px;
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        border-radius: 80%;
+      }
+      .step-connector {
+        height: 1px;
+        width: 30%;
+        border: 1px solid grey;
+        position: relative;
+        top: 50;
+      }
+
+      /* ProductsTrainingStepOne Component CSS  */
+      .camera-details-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .camera-details-body {
+        margin: 2%;
+        padding: 1%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
+        width: 80%;
+      }
+      .camera-details-form {
+        min-height: 320px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .step-one-new-dataset-section {
+        padding-left: 100px;
+      }
+      .step-one-new-dataset-section input,
+      select {
+        margin-bottom: 10px;
+        height: 40px;
+      }
+      form div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .form-control,
+      .form-select {
+        width: 50%;
+      }
+
+      .btn-first-step-section {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      .btn-next-step {
+        padding: 5px 20px;
+        border: 1px solid black;
+      }
+
+      /* ProductsTrainingStepTwo Component CSS  */
+      .station-setup-step-two-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .station-setup-step-two-body {
+        margin: 2%;
+        padding: 1%;
+        border: 1px solid black;
+        width: 80%;
+      }
+      .products-training-step-two-top-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .products-training-step-two-top-left-section {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .products-training-step-two-top-right-section {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      .products-training-step-two-top-right-section div {
+        padding-left: 10px;
+      }
+      .btn-take-pictures-section {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .station-setup-step-two-video-section {
+        height: 300px;
+        display: flex;
+        align-items: center;
+      }
+      .products-training-step-two-rtsp-video {
+        height: 90%;
+      }
+      .step-two-pictures-section {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+      }
+      .step-two-pictures-section img {
+        padding: 10px 0px;
+        width: 150px;
+        height: 150px;
+      }
+      .previous-next-btn-section {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      .btn-take-pictures,
+      .camera-select-dropdown,
+      .btn-upload-source-dropdown,
+      .btn-previous-step,
+      .btn-next-step,
+      .btn-cancel-step {
+        padding: 5px 20px;
+        border: 1px solid black;
+        background: white;
+      }
+      .btn-previous-step,
+      .btn-cancel-step {
+        margin-right: 10px;
+      }
+
+      /* ProductsTrainingStepThree Component CSS  */
+      .station-setup-step-three-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .station-setup-step-three-body {
+        margin: 2%;
+        padding: 1%;
+        border: 1px solid black;
+        width: 80%;
+      }
+      .step-three-pictures-section {
+        min-height: 300px;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+      }
+      .step-three-pictures-section img {
+        padding: 10px 0px;
+        width: 150px;
+        height: 150px;
+        cursor: pointer;
+      }
+      .img-annotation-done {
+        opacity: 20%;
+      }
+
+      /* ProductsTrainingStepFour Component CSS  */
+      .step-four-pictures-section {
+        min-height: 300px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .step-four-pictures-section img {
+        padding: 10px 0px;
+        width: 600px;
+        height: 400px;
+      }
+
+      /* Initial style to show/hide step */
+      #station-setup-step-one-component {
+        display: block;
+      }
+      #station-setup-step-two-component {
+        display: none;
+      }
+      #station-setup-step-three-component {
+        display: none;
+      }
+      #products-training-step-four-component {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header-component">
+      <nav class="navbar navbar-expand-md navbar-light site-header bg-primary">
+        <div class="container-fluid">
+          <a
+            class="site-logo"
+            href="/home"
+            style="text-decoration: none; color: white"
+            ><h1>EXPERT</h1></a
+          ><button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="navbar-collapse collapse justify-content-end"
+            id="navbarNavAltMarkup"
+          >
+            <div class="row">
+              <div class="col-10-xxl">
+                <div class="header-links-section">
+                  <ul class="navbar-nav">
+                    <li class="nav-item active">
+                      <a
+                        class="nav-link"
+                        href="/products-training#about"
+                        style="text-decoration: none; color: white"
+                        ><h6>About Company</h6></a
+                      >
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a
+                        class="nav-link dropdown-toggle"
+                        id="navbarDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        href="/products-training"
+                        style="color: white; font-weight: 500"
+                        >Products</a
+                      >
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbarDropdown"
+                      >
+                        <li>
+                          <a class="dropdown-item" href="/products-training"
+                            >Products Training</a
+                          >
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="/Dataset-List"
+                            >Dataset-List</a
+                          >
+                        </li>
+                      </ul>
+                   
+                    </li>
+
+                    <li class="nav-item dropdown">
+                      <a
+                        class="nav-link dropdown-toggle"
+                        id="navbarDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        style="color: white; font-weight: 500"
+                        >Camera</a
+                      >
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbarDropdown"
+                      >
+                        <li>
+                          <a class="dropdown-item" href="/add-camera"
+                            >Add Camera</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="/Camera-list"
+                            >Existing Camera</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <!-- <a
+                    class="nav-link"
+                    href="/add-camera"
+                    style="text-decoration: none; color: black"
+                    ><h6>Camera</h6></a> -->
+                    <li class="nav-item">
+                      <a
+                        class="nav-link"
+                        href="/products-training#help"
+                        style="text-decoration: none; color: white"
+                        ><h6>Help</h6></a
+                      >
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a
+                        class="nav-link"
+                        href="/my-account"
+                        style="text-decoration: none; color: white"
+                        ><h6>My Account</h6>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-2-xxl">
+                <div class="header-search-section">
+                  <ul class="navbar-nav">
+                    <li class="nav-item bg-white">
+                      <input
+                        class="from-control"
+                        type="text"
+                        placeholder="Search by date and time"
+                      />
+                      <!-- <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                        ></path>
+                      </svg> -->
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="navigation-menu-component">
+      <div class="row">
+        <div class="col-10 navigation-menu-left-section">
+          <a
+            href="/products-training#station-1"
+            style="text-decoration: none; color: black"
+          >
+            <p>Station 1</p>
+          </a>
+          <a
+            href="/products-training#station-2"
+            style="text-decoration: none; color: black"
+          >
+            <p>Station 2</p>
+          </a>
+          <a
+            href="/products-training#station-3"
+            style="text-decoration: none; color: black"
+          >
+            <p>Station 3</p>
+          </a>
+          <a
+            href="/products-training#station-4"
+            style="text-decoration: none; color: black"
+          >
+            <p>Station 4</p>
+          </a>
+        </div>
+        <div class="col-2 navigation-menu-right-section">
+          <a class="btn btn-secondary" href="/new-station"> Add Station </a>
+        </div>
+      </div>
+    </div>
+    <div class="station-setup-page">
+      <!-- Step-1 -->
+      <div
+        id="station-setup-step-one-component"
+        class="station-setup-step-one-component"
+      >
+        <div class="station-setup-component-body">
+          <h4>Station Setup</h4>
+          <div class="camera-details-section">
+            <div class="camera-details-body">
+              <h5 class="text-left">Station Details</h5>
+              <div class="camera-details-form">
+                <div class="step-one-new-dataset-section">
+
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="stationNameInput"
+                    placeholder="Station name"
+                    required
+                  />
+                  <label for="select-camera">Select A Camera</label>
+                  <select
+                    name="camera-dropdown"
+                    id="camera-select-dropdown"
+                    class="form-select"
+                  >
+                  </select>
+
+                  <!-- <input
+                    type="text"
+                    class="form-control"
+                    id="stationNumberInput"
+                    placeholder="Station number"
+                    required
+                  /> -->
+                  <!-- <input
+                    type="text"
+                    class="form-control"
+                    id="cameraMac"
+                    placeholder="Camera mac addr"
+                    required
+                  /> -->
+
+                </div>
+                <div class="btn btn-first-step-section">
+                  <button class="btn btn-cancel-step">Cancel</button>
+                  <button class="btn btn-next-step" onclick="stepOneNext()">
+                    Next
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Step Indicator (Step-1) -->
+          <div class="step-indicator-container">
+            <div
+              id="step-one-container"
+              class="step-container"
+              style="background: rgb(122, 182, 72)"
+            >
+              <div class="step-one-circle"></div>
+            </div>
+            <div class="step-connector"></div>
+            <div
+              id="step-two-container"
+              class="step-container"
+              style="background: yellow"
+            >
+              <div class="step-two-circle"></div>
+            </div>
+            <div class="step-connector"></div>
+            <div
+              id="step-three-container"
+              class="step-container"
+              style="background: yellow"
+            >
+              <div class="step-three-circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step-2  -->
+      <div
+        id="station-setup-step-two-component"
+        class="station-setup-step-two-component"
+      >
+        <div class="station-setup-component-body">
+          <h6>Station Setup</h6>
+          <div class="station-setup-step-two-section">
+            <div class="station-setup-step-two-body">
+              <div class="btn-take-pictures-section">
+                <button
+                  class="btn btn-take-pictures"
+                  onclick="stepTwoTakePictures()"
+                >
+                  Take Pictures
+                </button>
+              </div>
+              <div class="station-setup-step-two-video-section">
+                  <img
+                    id="step-two-rtsp-video"
+                    class="products-training-step-two-rtsp-video"
+                    src="{{ url_for('rtsp_feed') }}"
+                    width="100%"
+                  />
+              </div>
+                   
+              <div
+                id="step-two-pictures-section"
+                class="step-two-pictures-section"
+              ></div>
+              <div class="previous-next-btn-section">
+                <button
+                  class="btn btn-previous-step"
+                  onclick="stepTwoPrevious()"
+                >
+                  Previous</button
+                ><button class="btn btn-next-step" onclick="stepTwoNext()">
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Step Indicator (Step-2) -->
+          <div class="step-indicator-container">
+            <div
+              id="step-one-container"
+              class="step-container"
+              style="background: rgb(122, 182, 72)"
+            >
+              <div class="step-one-circle"></div>
+            </div>
+            <div class="step-connector"></div>
+            <div
+              id="step-two-container"
+              class="step-container"
+              style="background: rgb(122, 182, 72)"
+            >
+              <div class="step-two-circle"></div>
+            </div>
+            <div class="step-connector"></div>
+            <div
+              id="step-three-container"
+              class="step-container"
+              style="background: yellow"
+            >
+              <div class="step-three-circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step - 3 -->
+      <div
+        id="station-setup-step-three-component"
+        class="station-setup-step-three-component"
+      >
+        <div class="station-setup-component-body">
+          <p>
+            <strong
+              >Dataset Training --> Name --> Source Label --> Definition
+            </strong>
+          </p>
+          <div class="station-setup-step-three-section">
+            <div class="station-setup-step-three-body">
+              <p class="text-center">
+                **Please click on the image to do annotation of the image.**
+              </p>
+              <div
+                id="step-three-pictures-section"
+                class="step-three-pictures-section"
+              ></div>
+              <div class="previous-next-btn-section">
+                <button
+                  class="btn btn-previous-step"
+                  onclick="stepThreePrevious()"
+                >
+                  Previous</button
+                ><button class="btn btn-next-step" onclick="stepThreeSubmit()">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Step Indicator (Step-3) -->
+          <div class="step-indicator-container">
+            <div
+              id="step-one-container"
+              class="step-container"
+              style="background: rgb(122, 182, 72)"
+            >
+              <div class="step-one-circle"></div>
+            </div>
+            <div class="step-connector"></div>
+            <div
+              id="step-two-container"
+              class="step-container"
+              style="background: rgb(122, 182, 72)"
+            >
+              <div class="step-two-circle"></div>
+            </div>
+            <div class="step-connector"></div>
+            <div
+              id="step-three-container"
+              class="step-container"
+              style="background: rgb(122, 182, 72)"
+            >
+              <div class="step-three-circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dataset Training (Step-4-Annotation)  -->
+      <div
+        id="products-training-step-four-component"
+        class="products-training-step-four-component"
+      >
+        <div class="station-setup-component-body">
+          <p>Product Annotation</p>
+          <div class="station-setup-step-three-section">
+            <div class="station-setup-step-three-body">
+              <div
+                id="step-four-pictures-section"
+                class="step-four-pictures-section"
+              ></div>
+              <div class="previous-next-btn-section">
+                <button
+                  class="btn btn-previous-step"
+                  onclick="cancelAnnotation()"
+                >
+                  Cancel</button
+                ><button class="btn btn-next-step" onclick="doneAnnotation()">
+                  Done
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+      crossorigin="anonymous"
+    ></script>
+    <!-- uuid  -->
+    <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
+
+    <!-- Annotation Annotorious CDN  -->
+    <!-- CSS stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@recogito/annotorious@latest/dist/annotorious.min.css"
+    />
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@recogito/annotorious@latest/dist/annotorious.min.js"></script>
+    <!-- Axios CDN  -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+     <!-- external cdn link end here -->
+    <!-- main script start from here -->
+
+
+    <script>
+      // Camera Details Variables
+      let annotationData = [];
+      let capturedPictures = [];
+      let currentAnnotationImgId;
+      let stationId;
+
+      // let annotationImgSrc;
+      // let labelName;
+      // let annotationValue;
+      // Step One Functions
+      // Show Step Two when Next Button Clicked
+
+      function stepOneNext() {
+
+        // Capture Data from input
+        const stationNameInput = document.getElementById("stationNameInput").value;
+        const existingCamera = document.getElementById("camera-select-dropdown").value;
+
+        // const cameraData={
+        //   s_name: stationNameInput,
+        //   s_num: stationNumberInput,
+        //   mac_addr: cameraMac
+        //  }
+        // console.log(cameraData)
+
+        fetch("http://24.186.96.191:8889/camera-station-add", {
+          method: "POST",
+          body: JSON.stringify({
+              s_name: stationNameInput,
+              camera_id: existingCamera
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
+          .then(res=> res.json())
+          .then(data=>{
+            stationId=data[0].station_id;
+            // const cameraNo=data[0].Camera;
+            // rtspFeed(cameraNo);
+            if (data) {
+              document.getElementById(
+                "station-setup-step-one-component"
+              ).style.display = "none";
+              document.getElementById(
+                "station-setup-step-two-component"
+              ).style.display = "block";
+              document.getElementById(
+                "station-setup-step-three-component"
+              ).style.display = "none";
+              document.getElementById(
+                "products-training-step-four-component"
+              ).style.display = "none";
+            }
+           });
+      }
+
+      //getting rtsp feed
+      // function rtspFeed(id){
+      //   const rtspDiv=document.getElementById("rtsp-div")
+      //   const cameraId=id.toString();
+      //   fetch("http://24.186.96.191:8889/rtsp_feed",{
+      //     method: "POST",
+      //     body: JSON.stringify({
+      //       id: cameraId,
+      //     }),
+      //     headers: {
+      //       "Content-type": "application/json; charset=UTF-8",
+      //     },
+      //   })
+      //   .then(res=>res.json())
+      //   .then(data=>{
+      //     const rtspURL=data[0].RTSP_URL;
+      //     console.log(rtspURL)
+      //   })
+      // } 
+
+
+      // getting existing camera data from database
+       fetch("http://24.186.96.191:8889/camera-info")
+      .then(res=>res.json())
+      .then(data=>{
+        const allCameraList=data.Camera;
+        let cameraData=allCameraList.map(cameraNo=>`
+         <option value=${cameraNo.id}>ID-${cameraNo.id} MAC-${cameraNo.mac_addr}</option>
+        `)
+        const cameraList=document.getElementById("camera-select-dropdown");
+        cameraList.innerHTML=cameraData;
+      })
+
+
+      // Step Two Function
+      function stepTwoPrevious() {
+        document.getElementById(
+          "station-setup-step-one-component"
+        ).style.display = "block";
+        document.getElementById(
+          "station-setup-step-two-component"
+        ).style.display = "none";
+        document.getElementById(
+          "station-setup-step-three-component"
+        ).style.display = "none";
+        document.getElementById(
+          "products-training-step-four-component"
+        ).style.display = "none";
+      }
+
+
+      // Function to take snapshot from RTSP Video
+      function stepTwoTakePictures() {
+        if (capturedPictures.length < 10) {
+          const video = document.getElementById("step-two-rtsp-video");
+          const canvas = document.createElement("canvas");
+
+          canvas.width = video.naturalHeight;
+          canvas.height = video.naturalWidth;
+
+          canvas
+            .getContext("2d")
+            .drawImage(video, 0, 0, canvas.width, canvas.height);
+          const dataURL = canvas.toDataURL("");
+
+          // Add Captured Images to an Array
+          capturedPictures.push({
+            id: uuidv4(),
+            imgSrc: dataURL,
+            annotationDone: false,
+          });
+
+          // Show Captured images from array to Step Two DOM
+          const img = document.createElement("img");
+          img.src = capturedPictures[capturedPictures.length - 1].imgSrc;
+          document.getElementById("step-two-pictures-section").appendChild(img);
+        } else {
+          console.log(capturedPictures);
+          alert("Already Captured 10 images.");
+        }
+      }
+
+      function stepTwoNext() {
+        document.getElementById(
+          "station-setup-step-one-component"
+        ).style.display = "none";
+        document.getElementById(
+          "station-setup-step-two-component"
+        ).style.display = "none";
+        document.getElementById(
+          "station-setup-step-three-component"
+        ).style.display = "block";
+        document.getElementById(
+          "products-training-step-four-component"
+        ).style.display = "none";
+
+        // Show Captured images from array to Step Three DOM
+        capturedPictures.map((imgObj) => {
+          const img = document.createElement("img");
+          img.src = imgObj.imgSrc;
+          img.onclick = function () {
+            currentAnnotationImgId = imgObj.id;
+            // Show Annotaion Image in the fourth step
+            const annotationImg = document.createElement("img");
+            annotationImg.src = imgObj.imgSrc;
+            annotationImg.id = "annotation-img";
+            document
+              .getElementById("step-four-pictures-section")
+              .appendChild(annotationImg);
+
+            document.getElementById(
+              "station-setup-step-one-component"
+            ).style.display = "none";
+            document.getElementById(
+              "station-setup-step-two-component"
+            ).style.display = "none";
+            document.getElementById(
+              "station-setup-step-three-component"
+            ).style.display = "none";
+            document.getElementById(
+              "products-training-step-four-component"
+            ).style.display = "block";
+
+            (function () {
+              var anno = Annotorious.init({
+                image: "annotation-img",
+                locale: "auto",
+                widgets: [
+                  { widget: "COMMENT" },
+                  {
+                    widget: "TAG",
+                    vocabulary: ["Animal", "Building", "Waterbody"],
+                  },
+                ],
+              });
+
+              anno.setAuthInfo({
+                id: "http://www.example.com/rainer",
+                displayName: "ECL",
+              });
+
+              anno.on("selectAnnotation", function (a) {
+                console.log("selected", a);
+              });
+
+              anno.on("createAnnotation", function (a) {
+                // console.log("created", a);
+
+                // labelName = a.body[0].value;
+                // annotationImgSrc = a.target.source;
+                // annotationValue = a.target.selector.value;
+
+                annotationData.push({
+                  img: a.target.source,
+                  label: a.body[0].value,
+                  annot: a.target.selector.value,
+                });
+
+                console.log(annotationData)
+                anno.addAnnotation(a);
+                anno.saveSelected();
+              });
+
+              anno.on("updateAnnotation", function (annotation, previous) {
+                console.log("updated", previous, "with", annotation);
+              });
+
+              anno.on("deleteAnnotation", function (annotation) {
+                console.log("deleted", annotation);
+              });
+
+              anno.setDrawingTool("polygon");
+            })();
+          };
+          document
+            .getElementById("step-three-pictures-section")
+            .appendChild(img);
+        });
+      }
+
+
+      // Step Three Function
+      function stepThreePrevious() {
+        document.getElementById(
+          "station-setup-step-one-component"
+        ).style.display = "none";
+        document.getElementById(
+          "station-setup-step-two-component"
+        ).style.display = "block";
+        document.getElementById(
+          "station-setup-step-three-component"
+        ).style.display = "none";
+        document.getElementById(
+          "products-training-step-four-component"
+        ).style.display = "none";
+
+        document.getElementById("step-three-pictures-section").innerHTML = "";
+      }
+
+      function cancelAnnotation() {
+        document.getElementById("step-four-pictures-section").innerHTML = "";
+
+        document.getElementById(
+          "station-setup-step-one-component"
+        ).style.display = "none";
+        document.getElementById(
+          "station-setup-step-two-component"
+        ).style.display = "none";
+        document.getElementById(
+          "station-setup-step-three-component"
+        ).style.display = "block";
+        document.getElementById(
+          "products-training-step-four-component"
+        ).style.display = "none";
+      }
+
+      function doneAnnotation() {
+
+        // fetch("https://jsonplaceholder.typicode.com/posts", {
+        //   method: "POST",
+        //   body: JSON.stringify({
+        //     title: labelName,
+        //     body: labelName,
+        //     userId: annotatgionValue,
+        //     // annotationImSrc
+        //     // annotationValue
+        //   }),
+        //   headers: {
+        //     "Content-type": "application/json; charset=UTF-8",
+        //   },
+        // })
+        //   .then((response) => response.json())
+        //   .then((json) => console.log(json));
+
+
+        capturedPictures = capturedPictures.map((obj) =>
+          obj.id === currentAnnotationImgId
+            ? { ...obj, annotationDone: true }
+            : obj
+        );
+
+        document.getElementById("step-three-pictures-section").innerHTML = "";
+        document.getElementById("step-four-pictures-section").innerHTML = "";
+
+        capturedPictures.map((imgObj) => {
+          if (imgObj.annotationDone === true) {
+            const img = document.createElement("img");
+            img.src = imgObj.imgSrc;
+            img.className = "img-annotation-done";
+            img.onclick = function () {
+              // Show Alert of Annotation Completion
+              alert("Annotation of this image is already done.");
+            };
+
+            // Append Updated Images Element to the Step Three DOM
+            document
+              .getElementById("step-three-pictures-section")
+              .appendChild(img);
+          } else {
+            const img = document.createElement("img");
+            img.src = imgObj.imgSrc;
+            img.onclick = function () {
+              currentAnnotationImgId = imgObj.id;
+              // Show Annotaion Image in the fourth step
+              const annotationImg = document.createElement("img");
+              annotationImg.src = imgObj.imgSrc;
+              annotationImg.id = "annotation-img";
+              document
+                .getElementById("step-four-pictures-section")
+                .appendChild(annotationImg);
+
+              document.getElementById(
+                "station-setup-step-one-component"
+              ).style.display = "none";
+              document.getElementById(
+                "station-setup-step-two-component"
+              ).style.display = "none";
+              document.getElementById(
+                "station-setup-step-three-component"
+              ).style.display = "none";
+              document.getElementById(
+                "products-training-step-four-component"
+              ).style.display = "block";
+
+              (function () {
+                var anno = Annotorious.init({
+                  image: "annotation-img",
+                  locale: "auto",
+                  widgets: [
+                    { widget: "COMMENT" },
+                    {
+                      widget: "TAG",
+                      vocabulary: ["Animal", "Building", "Waterbody"],
+                    },
+                  ],
+                });
+
+                anno.setAuthInfo({
+                  id: "http://www.example.com/rainer",
+                  displayName: "ECL",
+                });
+
+                anno.on("selectAnnotation", function (a) {
+                  console.log("selected", a);
+                });
+
+                anno.on("createAnnotation", function (a) {
+
+                  // console.log("created", a);
+                  // annotationImgSrc = a.target.source;
+                  // labelName = a.body[0].value;
+                  // annotationValue = a.target.selector.value;
+
+
+                  annotationData.push({
+                    label: a.body[0].value,
+                    img: a.target.source,
+                    annot: a.target.selector.value,
+
+                  });
+                  anno.addAnnotation(a);
+                  anno.saveSelected();
+                });
+
+                anno.on("updateAnnotation", function (annotation, previous) {
+                  console.log("updated", previous, "with", annotation);
+                });
+
+                anno.on("deleteAnnotation", function (annotation) {
+                  console.log("deleted", annotation);
+                });
+
+                anno.setDrawingTool("polygon");
+              })();
+            };
+
+            // Append Updated Images Element to the Step Three DOM
+            document
+              .getElementById("step-three-pictures-section")
+              .appendChild(img);
+          }
+        });
+
+        document.getElementById(
+          "station-setup-step-one-component"
+        ).style.display = "none";
+        document.getElementById(
+          "station-setup-step-two-component"
+        ).style.display = "none";
+        document.getElementById(
+          "station-setup-step-three-component"
+        ).style.display = "block";
+        document.getElementById(
+          "products-training-step-four-component"
+        ).style.display = "none";
+      }
+
+      function stepThreeSubmit() {
+        // Check Annotation of all image is complete
+        let doneAnnotationNumbers = 0;
+        for (let i = 0; i < capturedPictures.length; i++) {
+          if (capturedPictures[i].annotationDone === true) {
+            doneAnnotationNumbers++;
+          }
+        }
+
+        // Trigger Action based on annotation completion
+        if (doneAnnotationNumbers === capturedPictures.length) {
+          console.log(annotationData);
+          
+        } else if (doneAnnotationNumbers !== capturedPictures.length) {
+          alert("Please complete annotation of all images first.");
+        }
+        console.log(stationId)
+        fetch("http://24.186.96.191:8889/station-label-add", {
+          method: "POST",
+          body: JSON.stringify({
+            id: stationId,
+            annotationData: annotationData
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) =>{
+            if (data) {
+              alert("Annotation data submitted successfully.!")
+            }
+          });
+      }
+
+    </script>
+  </body>
+</html>

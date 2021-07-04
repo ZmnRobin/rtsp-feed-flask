@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+    crossorigin="anonymous"
+  />
+    <title>Camera List</title>
+    <style>
+               /* Header Component CSS  */
+      .site-header {
+        padding: 1%;
+        border-bottom: 1px solid #80808080;
+      }
+      .site-logo {
+        padding-left: 5%;
+      }
+      .header-links-section {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .header-search-section {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .header-search-section ul {
+        padding: 0px 5px;
+      }
+      .header-search-section input {
+        max-width: 180px;
+        border: none;
+        outline: none;
+      }
+
+      .details-table{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        text-align: center;
+        border-radius: 5px;
+      }
+    </style>
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-expand-md navbar-light site-header bg-primary">
+            <div class="container-fluid">
+              <a
+                class="site-logo text-white"
+                href="/home"
+                style="text-decoration: none; color: black"
+                ><h1>EXPERT</h1></a
+              ><button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div
+                class="navbar-collapse collapse justify-content-end"
+                id="navbarNavAltMarkup"
+              >
+                <div class="row">
+                  <div class="col-10-xxl">
+                    <div class="header-links-section">
+                      <ul class="navbar-nav text-white">
+                        <li class="nav-item active">
+                          <a
+                            class="nav-link"
+                            href="/products-training#about"
+                            style="text-decoration: none; color: black"
+                            ><h6 class="text-white">About Company</h6></a
+                          >
+                        </li>
+                        <li class="nav-item dropdown">
+                          <a
+                            class="nav-link dropdown-toggle"
+                            id="navbarDropdown"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                            href="/products-training"
+                            style="color: white; font-weight: 500"
+                           
+                            >Products</a
+                          >
+                          <ul
+                            class="dropdown-menu"
+                            aria-labelledby="navbarDropdown"
+                          >
+                            <li>
+                              <a class="dropdown-item" href="/products-training"
+                                >Products Training</a
+                              >
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="/Dataset-List"
+                                >Dataset-List</a
+                              >
+                            </li>
+                          </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a
+                              class="nav-link dropdown-toggle"
+                              id="navbarDropdown"
+                              role="button"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                              style="color: white; font-weight: 500"
+                             
+                              >Camera</a
+                            >
+                            <ul
+                              class="dropdown-menu"
+                              aria-labelledby="navbarDropdown"
+                            >
+                              <li>
+                                <a class="dropdown-item" href="/add-camera"
+                                  >Add Camera</a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="/Camera-list"
+                                  >Existing Camera</a
+                                >
+                              </li>
+                            </ul>
+                          </li>
+                        <!-- <a
+                        class="nav-link"
+                        href="/add-camera"
+                        style="text-decoration: none; color: black"
+                        ><h6>Camera</h6></a> -->
+
+                        <li class="nav-item">
+                          <a
+                            class="nav-link"
+                            href="/products-training#help"
+                            style="text-decoration: none;"
+                            ><h6 class="text-white">Help</h6></a
+                          >
+                        </li>
+
+                        <li class="nav-item dropdown">
+                          <a
+                            class="nav-link"
+                            href="/my-account"
+                            style="text-decoration: none; color: black"
+                            ><h6 class="text-white">My Account</h6>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-2-xxl">
+                    <div class="header-search-section">
+                      <ul class="navbar-nav">
+                        <li class="nav-item bg-white">
+                          <input
+                            class="form-control"
+                            type="text"
+                            placeholder="Search by date and time"
+                          />
+                          <!-- <svg
+                            stroke="currentColor"
+                            fill="currentColor"
+                            stroke-width="0"
+                            viewBox="0 0 1024 1024"
+                            height="1em"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                            ></path>
+                          </svg> -->
+
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+          <br>
+          <div class="container">
+            <div class="details-table p-1">
+                <table class="table ">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">User Name</th>
+                        <th scope="col">IP Address</th>
+                        <th scope="col">MAC Address</th>
+                        <th scope="col">Camera Id</th>
+                        <th scope="col">RTSP Url</th>
+                    </tr>
+                    </thead>
+                    <tbody id="table-body">
+
+                    </tbody>
+                </table>
+            </div>
+          </div>
+    </div>
+
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      
+          window.onload = function() {
+            getCameraData();
+          };
+
+        //getting existing camera data
+        function getCameraData(){
+          fetch("http://24.186.96.191:8889/camera-info")
+          .then(res=>res.json())
+          .then(data=>{
+              // console.log(data)
+              const cameraData=data.Camera;
+              let tableRow=cameraData.map(singleCamera=>`
+              <tr>
+                  <td>${singleCamera.u_name}</td>
+                  <td>${singleCamera.ip_addr}</td>
+                  <td>${singleCamera.mac_addr}</td>
+                  <td>${singleCamera.id}</td>
+                  <td>${singleCamera.rtsp_url}</td>
+                  <td><button class="btn btn-danger" onclick="deleteCamera(${singleCamera.mac_addr})">X</button></td>
+              </tr>
+              `
+              )
+          const tableBody=document.getElementById("table-body");
+          tableBody.innerHTML=tableRow;
+          })
+         }
+
+        //deleting individual camera via mac_addr from database
+        function deleteCamera(mac){
+          // const mac_ad=toString(mac);
+          fetch('http://24.186.96.191:8889/remove-camera', {
+          method: 'POST',
+          body: JSON.stringify({
+            mac_addr:mac
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          console.log(data)
+          if (data) {
+            alert("Camera deleted successfully.!")
+            getCameraData();
+          }
+        })
+      }
+
+    </script>
+</body>
+</html>
