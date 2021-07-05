@@ -12,11 +12,7 @@ import imutils
 from imutils.video import VideoStream
 
 
-# email=input("Enter Email: ")
-# password=input("Enter Password: ")
-# user = auth.create_user_with_email_and_password(email, password)
-# # user = auth.sign_in_with_email_and_password(email, password)
-# print(user['idToken'])
+
 # * ---------- Create App --------- *
 
 app = Flask(__name__)
@@ -34,8 +30,13 @@ config={
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
 
-@app.route('/',methods=['GET','POST'])
+# email=input("Enter Email: ")
+# password=input("Enter Password: ")
+# user = auth.create_user_with_email_and_password(email, password)
+# print(user['idToken'])
 
+
+@app.route('/',methods=['GET','POST'])
 def mainfunction():
     if request.method == 'POST':
         email=request.form['email']
@@ -44,9 +45,7 @@ def mainfunction():
         return redirect(url_for('index'))
     return render_template('login.html')
 
-
 rtsp_url ="rtsp://user1:User123456@192.168.0.200:554/cam/realmonitor?channel=1&subtype=0"
-
 vs = VideoStream(rtsp_url).start()
 # # vs2 = VideoStream(rtsp_url2).start()
 

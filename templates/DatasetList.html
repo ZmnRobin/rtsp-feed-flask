@@ -243,29 +243,8 @@
         <br>
         <!-- Dataset list -->
             <div class="container">
-                <div class="data-container p-3">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <h4>Dataset Name:</h4>
-                             <br>
-                             <div id="dataset-name">
-
-                             </div>
-                        </div>
-                        <div class="col-md-8 dataset p-2">
-                            Dataset List:
-                            <br>
-                            <p class="p-3">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque, eaque. Possimus necessitatibus sapiente quas aperiam, dolorum sit consequatur, nemo sunt eius explicabo velit eos saepe ratione, soluta omnis hic! Dicta, velit cum? Provident nihil doloribus officiis minus dicta illo nam. Consectetur, perspiciatis optio numquam nemo corporis voluptatum exercitationem minima eligendi, saepe quos distinctio molestias veritatis quae ea placeat nobis cupiditate fugit tempora. Iste iusto, deserunt delectus soluta labore, reprehenderit earum sapiente eligendi dolorum et expedita cumque excepturi. Culpa perspiciatis doloremque quas dolorem illo tempore ab molestiae vero nulla assumenda, mollitia quo minus ratione tenetur dicta qui? Et assumenda ea ex temporibus, saepe fuga vel! Non sit dolores rem quibusdam mollitia ad debitis officiis incidunt quae labore. Sit suscipit, eligendi cupiditate maxime cum debitis delectus officia quos facilis possimus accusamus nulla illum vel iusto. Rem, minima odit laborum, similique ratione in porro tempore molestiae esse eaque doloremque fugit perferendis voluptates! Iste ut incidunt minima molestias sed, expedita possimus illum! Quam neque tempora iste laudantium sunt, necessitatibus esse dolor voluptatem perferendis deserunt pariatur enim alias libero! Alias pariatur, asperiores laboriosam fugiat labore ipsam dolorum nesciunt dolorem. Eveniet qui fugit officia consectetur tenetur placeat explicabo inventore natus reiciendis, voluptatibus non quae, fuga iste.
-                            </p>
-                        </div>
-                        <div class="col-md-2">
-                            <button class="btn btn-secondary">Edit</button>
-                                <br>
-                                <br>
-                            <button class="btn btn-danger">Delete</button>
-                        </div>
-                    </div>
+                <div class="data-container p-3" id="dataset-details">
+                    
                 </div>
             </div>
         </div>
@@ -280,16 +259,58 @@
 
    <script>
      //fetching existing dataset from database
-    fetch("http://24.186.96.191:8889/get-dataset")
+    fetch("http://24.186.96.191:8889/dataset-query")
      .then(res=>res.json())
      .then(data=>{
-       const dataset=document.getElementById("dataset-name");
-       const allData=data.Dataset;
+       const dataset=document.getElementById("dataset-details");
+       const allData=data.Dataset_info;
        const singleData=allData.map(singleDataset=>
-        `<h6>${singleDataset}</h6>`
+
+        `
+        <div class="row">
+              <div class="col-md-2">
+                    <h4>Dataset Name:</h4>
+                      <br>
+                     <h5>${singleDataset.dName}</h5>
+                        </div>
+                        <div class="col-md-8 dataset p-2">
+                          <br>
+                            <div>
+                                <div class="row p-3" id="dataset-image">
+                                   <img style="width: 270px;margin-bottom: 8px;" src="https://i.pinimg.com/originals/63/49/a6/6349a6e2c75a7ba79f0d413f4557bbd6.jpg" alt="">
+                                   <img style="width: 270px;margin-bottom: 8px;" src="https://i.pinimg.com/originals/63/49/a6/6349a6e2c75a7ba79f0d413f4557bbd6.jpg" alt="">
+                                   <img style="width: 270px;margin-bottom: 8px;" src="https://i.pinimg.com/originals/63/49/a6/6349a6e2c75a7ba79f0d413f4557bbd6.jpg" alt="">
+                                   <img style="width: 270px;margin-bottom: 8px;" src="https://i.pinimg.com/originals/63/49/a6/6349a6e2c75a7ba79f0d413f4557bbd6.jpg" alt="">
+                                   <img style="width: 270px;margin-bottom: 8px;" src="https://i.pinimg.com/originals/63/49/a6/6349a6e2c75a7ba79f0d413f4557bbd6.jpg" alt="">
+                                   <img style="width: 270px;margin-bottom: 8px;" src="https://i.pinimg.com/originals/63/49/a6/6349a6e2c75a7ba79f0d413f4557bbd6.jpg" alt="">
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-2 mt-3">
+                      <button class="btn btn-secondary">Edit</button>
+                            <br>
+                            <br>
+                      <button class="btn btn-danger">Delete</button>
+                </div>
+          </div>
+        `
        )
        dataset.innerHTML=singleData;
      })
+     
+    //  //fetching existing image data from database
+    //  fetch("http://24.186.96.191:8889/dataset-query")
+    //  .then(res=>res.json())
+    //  .then(data=>{
+    //    const dataset_img=document.getElementById("dataset-image");
+    //    const allData=data.Dataset_info;
+    //    const singleData=allData.map(singleDataset=>
+    //     ` <img style="width: 270px;margin-bottom: 8px;" src="${singleDataset.photoLocation}" alt="">`
+    //    )
+    //    dataset_img.innerHTML=singleData;
+    //  })
+
+
    </script>
    
 </body>
